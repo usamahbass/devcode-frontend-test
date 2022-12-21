@@ -1,9 +1,12 @@
+import { Box } from "@chakra-ui/react";
+
 const PlusIcon = () => (
-  <svg
-    width={16}
-    height={16}
+  <Box
+    width={["12px", "12px", "12px", "16px"]}
+    height={["12px", "12px", "12px", "16px"]}
     viewBox="0 0 16 16"
     fill="none"
+    as="svg"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -20,7 +23,7 @@ const PlusIcon = () => (
       strokeLinecap="square"
       strokeLinejoin="round"
     />
-  </svg>
+  </Box>
 );
 
 export default PlusIcon;

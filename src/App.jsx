@@ -1,5 +1,7 @@
+import Routers from "./routes";
+
 const App = () => {
-  return <div>hllow app</div>;
+  return <Routers />;
 };
 
 export default App;

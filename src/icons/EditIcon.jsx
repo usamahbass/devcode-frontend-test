@@ -1,26 +1,29 @@
-const EditIcon = () => (
-  <svg
-    width={15}
-    height={15}
-    viewBox="0 0 15 15"
+import { Box } from "@chakra-ui/react";
+
+const EditIcon = ({ w = "24px", h = "24px" }) => (
+  <Box
+    w={w}
+    h={h}
+    viewBox="0 0 24 24"
     fill="none"
+    as="svg"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M1.3335 14.1666H4.66683L13.4168 5.41656C13.8589 4.97453 14.1072 4.37501 14.1072 3.74989C14.1072 3.12477 13.8589 2.52525 13.4168 2.08322C12.9748 1.6412 12.3753 1.39287 11.7502 1.39287C11.125 1.39287 10.5255 1.6412 10.0835 2.08322L1.3335 10.8332V14.1666Z"
-      stroke="#C4C4C4"
-      strokeWidth="1.5"
+      d="M5 19.9998H9L19.5 9.49981C20.0304 8.96938 20.3284 8.24996 20.3284 7.49981C20.3284 6.74967 20.0304 6.03025 19.5 5.49981C18.9696 4.96938 18.2501 4.67139 17.5 4.67139C16.7499 4.67139 16.0304 4.96938 15.5 5.49981L5 15.9998V19.9998Z"
+      stroke="#A4A4A4"
+      strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
-      d="M9.25 2.91661L12.5833 6.24994"
-      stroke="#C4C4C4"
-      strokeWidth="1.5"
+      d="M14.5 6.49982L18.5 10.4998"
+      stroke="#A4A4A4"
+      strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-  </svg>
+  </Box>
 );
 
 export default EditIcon;

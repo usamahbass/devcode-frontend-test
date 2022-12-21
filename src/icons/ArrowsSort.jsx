@@ -1,7 +1,10 @@
+import { Box } from "@chakra-ui/react";
+
 const ArrowsSort = () => (
-  <svg
-    width={22}
-    height={18}
+  <Box
+    as="svg"
+    height={["18px", "18px", "18px", "16px"]}
+    width={["16px", "16px", "16px", "22px"]}
     viewBox="0 0 22 18"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +21,7 @@ const ArrowsSort = () => (
       strokeWidth="1.5"
       strokeLinecap="square"
     />
-  </svg>
+  </Box>
 );
 
 export default ArrowsSort;

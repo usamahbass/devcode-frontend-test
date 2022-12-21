@@ -1,11 +1,13 @@
 import { Box, Container } from "@chakra-ui/react";
+import Helmet from "react-helmet";
 import Header from "./Header";
 
-const Layouts = ({ children, ...rest }) => {
+const Layouts = ({ children, title, ...rest }) => {
   return (
-    <Box bg="#F5F5F4" {...rest}>
+    <Box {...rest}>
+      <Helmet title={`To Do List - ${title}`} />
       <Header />
-      <Container maxW="6xl" mt={["34px", "34px", "34px", "43px"]}>
+      <Container maxW="1000px" mt={["34px", "34px", "34px", "43px"]}>
         {children}
       </Container>
     </Box>

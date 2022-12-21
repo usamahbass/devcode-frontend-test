@@ -4,6 +4,7 @@ const WarningIcon = () => (
     height={61}
     viewBox="0 0 68 61"
     fill="none"
+    data-cy="modal-delete-icon"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path

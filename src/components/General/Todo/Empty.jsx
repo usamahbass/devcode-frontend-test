@@ -1,21 +1,21 @@
 import { Box, Image } from "@chakra-ui/react";
-import ActivityEmptyImage from "@app/assets/images/png/activity-empty-state.png";
+import TodoEmptyImage from "@app/assets/images/png/todo-empty-state.png";
 
 const Empty = () => (
   <Box
     w="full"
     display="flex"
     justifyContent="center"
-    alt="activity-empty-state"
+    alt="todo-empty-state"
     position="relative"
     top={["50px", "50px", "50px", "0"]}
     right={["30px", "30px", "30px", "0"]}
   >
     <Image
-      src={ActivityEmptyImage}
-      data-cy="activity-empty-state"
-      w={["319px", "319px", "319px", "767px"]}
-      h={["204px", "204px", "204px", "490px"]}
+      src={TodoEmptyImage}
+      data-cy="todo-empty-state"
+      w={["320px", "320px", "320px", "541px"]}
+      h={["245px", "245px", "245px", "413px"]}
     />
   </Box>
 );

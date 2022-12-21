@@ -17,7 +17,6 @@ const Fallback = ({ i }) => {
       key={isKey}
       data-cy={isKey}
       borderRadius="12px"
-      mb={["20px", "20px", "20px", "26px"]}
       w={["150px", "150px", "150px", "235px"]}
       h={["150px", "150px", "150px", "235px"]}
       boxShadow="0px 6px 10px rgba(0, 0, 0, 0.1)"

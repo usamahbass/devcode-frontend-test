@@ -8,7 +8,7 @@ const Header = () => {
       data-cy="header-background"
       h={["64px", "64px", "64px", "105px"]}
     >
-      <Container h="full" display="flex" alignItems="center" maxW="6xl">
+      <Container h="full" display="flex" alignItems="center" maxW="1000px">
         <Text
           color="white"
           fontWeight={700}

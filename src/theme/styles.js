@@ -4,7 +4,7 @@ export const styles = {
   global: (props) => ({
     body: {
       minH: "100%",
-      bg: mode("#FEFEFF", "bg.900")(props),
+      bg: mode("#F5F5F4", "bg.900")(props),
       fontFamily: `'Poppins', sans-serif`,
     },
     html: {

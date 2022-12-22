@@ -33,11 +33,12 @@ const MenuSelect = ({ options, value, onChange, ...rest }) => {
         px="17px"
         borderRadius="6px"
         border="1px solid #E5E5E5"
+        data-cy="modal-add-priority-dropdown"
         w={["full", "full", "full", "205px"]}
       >
         <Box justifyContent="space-between" display="flex" alignItems="center">
           <Box
-            data-cy={`modal-add-priority-${getIsIndicator?.value}`}
+            data-cy={"modal-add-priority-item"}
             gap="19px"
             display="flex"
             alignItems="center"
@@ -51,9 +52,7 @@ const MenuSelect = ({ options, value, onChange, ...rest }) => {
             <Text>{getIsIndicator?.name ?? "Pilih Priority"}</Text>
           </Box>
 
-          <chakra.button data-cy="modal-add-priority-dropdown">
-            <ChevronDownIcon />
-          </chakra.button>
+          <ChevronDownIcon />
         </Box>
       </MenuButton>
 

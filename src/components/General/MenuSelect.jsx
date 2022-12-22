@@ -27,7 +27,7 @@ const MenuSelect = ({ options, value, onChange }) => {
   );
 
   return (
-    <Menu isOpen={isOpen}>
+    <Menu onClose={onClose} isOpen={isOpen}>
       <MenuButton
         h="52px"
         onClick={onOpen}
@@ -35,6 +35,7 @@ const MenuSelect = ({ options, value, onChange }) => {
         type="button"
         px="17px"
         borderRadius="6px"
+        transition="none !important"
         border="1px solid #E5E5E5"
         data-cy="modal-add-priority-dropdown"
         w={["full", "full", "full", "205px"]}
@@ -59,7 +60,7 @@ const MenuSelect = ({ options, value, onChange }) => {
         </Box>
       </MenuButton>
 
-      <MenuList p="0" id="hekl" borderRadius="6px">
+      <MenuList transition="none !important" p="0" id="hekl" borderRadius="6px">
         {options.map((option, i) => (
           <Box
             py="19px"

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   Button,
   Modal,
@@ -21,6 +22,14 @@ const ModalDelete = ({
   handleDelete,
   isLoadingDelete,
 }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document
+        .querySelectorAll(".chakra-modal__content-container")
+        .forEach((el) => el.setAttribute("data-cy", "modal-delete"));
+    }
+  }, [isOpen]);
+
   return (
     <>
       {/* DONE */}
@@ -67,8 +76,8 @@ const ModalDelete = ({
         motionPreset="slideInBottom"
         size={["xs", "sm", "md", "lg"]}
       >
-        <ModalOverlay data-cy="modal-delete" />
-        <ModalContent data-cy="modal-delete" borderRadius="12px">
+        <ModalOverlay />
+        <ModalContent borderRadius="12px">
           <ModalBody
             display="flex"
             alignItems="center"

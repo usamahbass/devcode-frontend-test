@@ -30,6 +30,7 @@ const MenuSelect = ({ options, value, onChange, ...rest }) => {
       <MenuButton
         h="52px"
         py="19px"
+        type="button"
         px="17px"
         borderRadius="6px"
         border="1px solid #E5E5E5"

@@ -3,16 +3,17 @@ import {
   Box,
   Menu,
   MenuButton,
-  MenuItem,
   MenuList,
   Text,
-  chakra,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { TODO_INDICATOR } from "@app/utils/constants";
 import SortSelectionSelectedIcon from "@app/icons/SortSelectionSelectedIcon";
 import ChevronDownIcon from "@app/icons/ChevronDownIcon";
 
-const MenuSelect = ({ options, value, onChange, ...rest }) => {
+const MenuSelect = ({ options, value, onChange }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const [sortPicked, setSortPicked] = useState(null);
 
   useEffect(() => {
@@ -26,9 +27,10 @@ const MenuSelect = ({ options, value, onChange, ...rest }) => {
   );
 
   return (
-    <Menu {...rest}>
+    <Menu isOpen={isOpen}>
       <MenuButton
         h="52px"
+        onClick={onOpen}
         py="19px"
         type="button"
         px="17px"
@@ -39,10 +41,7 @@ const MenuSelect = ({ options, value, onChange, ...rest }) => {
       >
         <Box justifyContent="space-between" display="flex" alignItems="center">
           <Box
-            key={TODO_INDICATOR.findIndex((el) => el.value === sortPicked)}
-            data-cy={`modal-add-priority-item-${TODO_INDICATOR.findIndex(
-              (el) => el.value === sortPicked
-            )}`}
+            data-cy={"modal-add-priority-item"}
             gap="19px"
             display="flex"
             alignItems="center"
@@ -60,24 +59,36 @@ const MenuSelect = ({ options, value, onChange, ...rest }) => {
         </Box>
       </MenuButton>
 
-      <MenuList p="0" borderRadius="6px">
+      <MenuList p="0" id="hekl" borderRadius="6px">
         {options.map((option, i) => (
-          <MenuItem
-            p="11px"
+          <Box
+            py="19px"
+            px="17px"
+            h="52px"
             key={i}
-            h="50px"
-            icon={option.icon}
-            data-cy={`modal-add-priority-${option.value}`}
+            id={i + 1}
+            display="flex"
+            alignItems="center"
+            _hover={{
+              bg: "#F4F4F4",
+              cursor: "pointer",
+            }}
+            justifyContent="space-between"
+            data-cy={"modal-add-priority-item"}
             onClick={() => {
               setSortPicked(option.value);
               onChange(option.value);
+              onClose();
             }}
-            command={
-              option?.value === sortPicked ? <SortSelectionSelectedIcon /> : ""
-            }
           >
-            <Text data-cy="sort-selection-title">{option.label}</Text>
-          </MenuItem>
+            <Box display="flex" alignItems="center" gap="19px">
+              {option.icon}
+
+              <Text data-cy="sort-selection-title">{option.label}</Text>
+            </Box>
+
+            {option?.value === sortPicked ? <SortSelectionSelectedIcon /> : ""}
+          </Box>
         ))}
       </MenuList>
     </Menu>

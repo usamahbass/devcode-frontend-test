@@ -36,7 +36,12 @@ const MenuSelect = ({ options, value, onChange, ...rest }) => {
         w={["full", "full", "full", "205px"]}
       >
         <Box justifyContent="space-between" display="flex" alignItems="center">
-          <Box gap="19px" display="flex" alignItems="center">
+          <Box
+            data-cy="modal-add-priority-item"
+            gap="19px"
+            display="flex"
+            alignItems="center"
+          >
             <Box
               w={["9px", "9px", "9px", "14px"]}
               h={["9px", "9px", "9px", "14px"]}

@@ -85,6 +85,7 @@ const SortPopover = ({ onChange }) => {
               p="11px"
               key={i}
               h="50px"
+              data-cy="sort-selection"
               icon={sortItem.icon}
               onClick={() => {
                 onChange(sortItem);

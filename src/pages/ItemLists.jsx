@@ -187,7 +187,7 @@ const ItemLists = () => {
         );
 
   return (
-    <Layouts title={`List Item for ${activityData?.title}`}>
+    <Layouts title={`List Item for ${activityData?.title ?? ""}`}>
       <Flex
         flexWrap="wrap"
         m="43px 0px 55px"

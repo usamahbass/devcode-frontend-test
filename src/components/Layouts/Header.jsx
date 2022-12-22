@@ -17,7 +17,7 @@ const Header = () => {
           fontSize={["18px", "18px", "18px", "24px"]}
           lineHeight={["27px", "27px", "27px", "36px"]}
         >
-          Todo List App
+          To Do List App
         </Text>
       </Container>
     </Box>

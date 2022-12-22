@@ -5,7 +5,7 @@ import idLocale from "date-fns/locale/id";
 import TrashIcon from "@app/icons/TrashIcon";
 
 const Card = ({ i, title, id, handleDeleteActivity, date }) => {
-  const isKey = `activity_item_${i + 1}`;
+  const isKey = `activity-item-${i + 1}`;
 
   const navigate = useNavigate();
 

@@ -30,6 +30,7 @@ const MenuSelect = ({ options, value, onChange, ...rest }) => {
         h="52px"
         py="19px"
         px="17px"
+        data-cy="modal-add-priority-dropdown"
         borderRadius="6px"
         border="1px solid #E5E5E5"
         w={["full", "full", "full", "205px"]}
@@ -42,7 +43,7 @@ const MenuSelect = ({ options, value, onChange, ...rest }) => {
               borderRadius="50px"
               bg={getIsIndicator?.color}
             />
-            <Text>{getIsIndicator?.name ?? 'Pilih Priority'}</Text>
+            <Text>{getIsIndicator?.name ?? "Pilih Priority"}</Text>
           </Box>
           <ChevronDownIcon />
         </Box>

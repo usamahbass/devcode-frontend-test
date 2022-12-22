@@ -10,7 +10,6 @@ import {
 import { capitalizeFirstLetter } from "@app/utils/helper";
 import WarningIcon from "@app/icons/WarningIcon";
 import InformationIcon from "@app/icons/InformationIcon";
-import { useEffect } from "react";
 
 const ModalDelete = ({
   isOpen,
@@ -64,12 +63,12 @@ const ModalDelete = ({
       <Modal
         isCentered
         isOpen={isOpen}
-        size={["xs", "sm", "md", "lg"]}
         onClose={onClose}
         motionPreset="slideInBottom"
+        size={["xs", "sm", "md", "lg"]}
       >
         <ModalOverlay />
-        <ModalContent data-cy="modal-delete" borderRadius="12px">
+        <ModalContent borderRadius="12px">
           <ModalBody
             display="flex"
             alignItems="center"

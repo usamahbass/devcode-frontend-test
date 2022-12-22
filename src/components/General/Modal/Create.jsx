@@ -35,14 +35,14 @@ const ModalCreate = ({
 }) => {
   return (
     <Modal
+      isCentered
       isOpen={isOpen}
       size={["xs", "sm", "md", "2xl"]}
       onClose={onClose}
-      isCentered
       motionPreset="slideInBottom"
     >
       <ModalOverlay />
-      <ModalContent borderRadius="12px">
+      <ModalContent data-cy="modal-add" borderRadius="12px">
         <form onSubmit={onSubmit}>
           <ModalHeader
             py="24px"
@@ -58,7 +58,10 @@ const ModalCreate = ({
             >
               {methodType === "post" ? "Tambah" : "Ubah"} List Item
             </Text>
-            <ModalCloseButton data-cy="modal-add-close-button" top="18px !important" />
+            <ModalCloseButton
+              data-cy="modal-add-close-button"
+              top="18px !important"
+            />
           </ModalHeader>
           <ModalBody mt={["23px", "23px", "23px", "38px"]}>
             <FormControl mb={["23px", "23px", "23px", "26px"]}>
@@ -102,7 +105,6 @@ const ModalCreate = ({
                     value={value}
                     onChange={onChange}
                     options={priorityDatas}
-                    data-cy="modal-add-priority-dropdown"
                   />
                 )}
               />

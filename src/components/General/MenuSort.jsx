@@ -64,27 +64,37 @@ const SortPopover = ({ onChange }) => {
       </MenuButton>
 
       <MenuList p="0" borderRadius="6px">
-        {sortedItems.map((sortItem, i) => (
-          <MenuItem
-            p="11px"
-            key={i}
-            h="50px"
-            icon={sortItem.icon}
-            onClick={() => {
-              onChange(sortItem);
-              setSortPicked(sortItem.keyName);
-            }}
-            command={
-              sortItem?.keyName === sortPicked ? (
-                <SortSelectionSelectedIcon />
-              ) : (
-                ""
-              )
-            }
-          >
-            <Text data-cy="sort-selection-title">{sortItem.name}</Text>
-          </MenuItem>
-        ))}
+        {sortedItems.map((sortItem, i) =>
+          sortItem.keyName === sortPicked ? (
+            <MenuItem
+              p="11px"
+              key={i}
+              h="50px"
+              data-cy="sort-selection-selected"
+              icon={sortItem.icon}
+              onClick={() => {
+                onChange(sortItem);
+                setSortPicked(sortItem.keyName);
+              }}
+              command={<SortSelectionSelectedIcon />}
+            >
+              <Text data-cy="sort-selection-title">{sortItem.name}</Text>
+            </MenuItem>
+          ) : (
+            <MenuItem
+              p="11px"
+              key={i}
+              h="50px"
+              icon={sortItem.icon}
+              onClick={() => {
+                onChange(sortItem);
+                setSortPicked(sortItem.keyName);
+              }}
+            >
+              <Text data-cy="sort-selection-title">{sortItem.name}</Text>
+            </MenuItem>
+          )
+        )}
       </MenuList>
     </Menu>
   );

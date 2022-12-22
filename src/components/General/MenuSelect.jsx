@@ -61,6 +61,7 @@ const MenuSelect = ({ options, value, onChange, ...rest }) => {
             key={i}
             h="50px"
             icon={option.icon}
+            data-cy={`modal-add-priority-${option.value}`}
             onClick={() => {
               setSortPicked(option.value);
               onChange(option.value);

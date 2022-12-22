@@ -10,5 +10,4 @@ const ChevronDownIcon = () => (
   </svg>
 );
 
-
-export default ChevronDownIcon
+export default ChevronDownIcon;

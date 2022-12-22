@@ -6,6 +6,7 @@ import {
   MenuItem,
   MenuList,
   Text,
+  chakra,
 } from "@chakra-ui/react";
 import { TODO_INDICATOR } from "@app/utils/constants";
 import SortSelectionSelectedIcon from "@app/icons/SortSelectionSelectedIcon";
@@ -30,14 +31,13 @@ const MenuSelect = ({ options, value, onChange, ...rest }) => {
         h="52px"
         py="19px"
         px="17px"
-        data-cy="modal-add-priority-dropdown"
         borderRadius="6px"
         border="1px solid #E5E5E5"
         w={["full", "full", "full", "205px"]}
       >
         <Box justifyContent="space-between" display="flex" alignItems="center">
           <Box
-            data-cy="modal-add-priority-item"
+            data-cy={`modal-add-priority-${getIsIndicator?.value}`}
             gap="19px"
             display="flex"
             alignItems="center"
@@ -50,7 +50,10 @@ const MenuSelect = ({ options, value, onChange, ...rest }) => {
             />
             <Text>{getIsIndicator?.name ?? "Pilih Priority"}</Text>
           </Box>
-          <ChevronDownIcon />
+
+          <chakra.button data-cy="modal-add-priority-dropdown">
+            <ChevronDownIcon />
+          </chakra.button>
         </Box>
       </MenuButton>
 

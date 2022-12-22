@@ -120,14 +120,11 @@ const ModalCreate = ({
               h="54px"
               w="150px"
               type="submit"
-              isLoading={isLoadingButton}
               data-cy="modal-add-save-button"
               colorScheme="primary"
+              isLoading={isLoadingButton}
+              disabled={disabledButton}
               fontSize={["1rem", "1rem", "1rem", "18px"]}
-              style={{
-                opacity: disabledButton ? ".2" : "1",
-                cursor: disabledButton ? "default" : "pointer",
-              }}
             >
               Simpan
             </Button>

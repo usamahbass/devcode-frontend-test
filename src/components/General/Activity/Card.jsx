@@ -13,7 +13,7 @@ const Card = ({ i, title, id, handleDeleteActivity, date }) => {
     <Box
       bg="white"
       key={isKey}
-      data-cy={isKey}
+      data-cy="activity-item"
       borderRadius="12px"
       w="100%"
       h={["150px", "150px", "150px", "234px"]}
@@ -31,19 +31,21 @@ const Card = ({ i, title, id, handleDeleteActivity, date }) => {
       }}
     >
       <Flex h="full" flexDirection="column" justifyContent="space-between">
-        <Text
-          color="text.500"
-          fontWeight={700}
-          data-cy="activity-item-title"
-          fontSize={["14px", "14px", "14px", "18px"]}
-          lineHeight={["21px", "21px", "21px", "27px"]}
+        <Box
+          h="full"
+          _hover={{ cursor: "pointer" }}
           onClick={() => navigate(`/item-list/${id}`)}
-          _hover={{
-            cursor: "pointer",
-          }}
         >
-          {title}
-        </Text>
+          <Text
+            color="text.500"
+            fontWeight={700}
+            data-cy="activity-item-title"
+            fontSize={["14px", "14px", "14px", "18px"]}
+            lineHeight={["21px", "21px", "21px", "27px"]}
+          >
+            {title}
+          </Text>
+        </Box>
 
         <Flex align="center" justify="space-between">
           <Text
@@ -59,9 +61,9 @@ const Card = ({ i, title, id, handleDeleteActivity, date }) => {
           </Text>
 
           <chakra.button
-            data-cy="activity-item-delete-button"
             _hover={{ opacity: 0.9 }}
             onClick={handleDeleteActivity}
+            data-cy="activity-item-delete-button"
           >
             <TrashIcon />
           </chakra.button>

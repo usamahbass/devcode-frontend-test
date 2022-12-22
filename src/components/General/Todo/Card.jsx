@@ -19,7 +19,7 @@ const Card = ({
   return (
     <Box
       bg="white"
-      data-cy={`todo-item-${i}`}
+      data-cy={`todo-item`}
       display="flex"
       alignItems="center"
       borderRadius="12px"

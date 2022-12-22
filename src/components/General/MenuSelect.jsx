@@ -39,6 +39,7 @@ const MenuSelect = ({ options, value, onChange, ...rest }) => {
       >
         <Box justifyContent="space-between" display="flex" alignItems="center">
           <Box
+            key={TODO_INDICATOR.findIndex((el) => el.value === sortPicked) + 1}
             data-cy={"modal-add-priority-item"}
             gap="19px"
             display="flex"

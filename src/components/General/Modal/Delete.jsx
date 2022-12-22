@@ -28,7 +28,7 @@ const ModalDelete = ({
         document
           .querySelector(".chakra-modal__content-container")
           .setAttribute("data-cy", "modal-delete");
-      }, 50);
+      }, 0);
     }
   }, [isOpen]);
 

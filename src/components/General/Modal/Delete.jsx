@@ -40,7 +40,7 @@ const ModalDelete = ({
         isCentered
         isOpen={isOpenDone}
         onClose={onCloseDone}
-        motionPreset="slideInBottom"
+        motionPreset="none"
       >
         <ModalOverlay data-cy="modal-information" />
         <ModalContent
@@ -75,7 +75,7 @@ const ModalDelete = ({
         isCentered
         isOpen={isOpen}
         onClose={onClose}
-        motionPreset="slideInBottom"
+        motionPreset="none"
         size={["xs", "sm", "md", "lg"]}
       >
         <ModalOverlay />

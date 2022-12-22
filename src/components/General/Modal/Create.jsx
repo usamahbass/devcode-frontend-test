@@ -39,7 +39,7 @@ const ModalCreate = ({
       isOpen={isOpen}
       size={["xs", "sm", "md", "2xl"]}
       onClose={onClose}
-      motionPreset="slideInBottom"
+      motionPreset="none"
     >
       <ModalOverlay data-cy="modal-add" />
       <ModalContent data-cy="modal-add" borderRadius="12px">

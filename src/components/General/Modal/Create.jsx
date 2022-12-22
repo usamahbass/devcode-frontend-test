@@ -123,8 +123,11 @@ const ModalCreate = ({
               isLoading={isLoadingButton}
               data-cy="modal-add-save-button"
               colorScheme="primary"
-              disabled={disabledButton}
               fontSize={["1rem", "1rem", "1rem", "18px"]}
+              style={{
+                opacity: disabledButton ? ".2" : "1",
+                cursor: disabledButton ? "default" : "pointer",
+              }}
             >
               Simpan
             </Button>

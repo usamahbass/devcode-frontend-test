@@ -106,12 +106,7 @@ const SortPopover = ({ onChange }) => {
                 setSortPicked(sortItem.keyName);
               }}
             >
-              <Box
-                display="flex"
-                w="full"
-                alignItems="center"
-                data-cy="sort-selection-selected"
-              >
+              <Box display="flex" w="full" alignItems="center">
                 <MenuIcon>{sortItem.icon}</MenuIcon>
                 <Text ml="12px" data-cy="sort-selection-title">
                   {sortItem.name}

@@ -48,7 +48,7 @@ const SortPopover = ({ onChange }) => {
 
   return (
     <Menu>
-      <MenuButton>
+      <MenuButton data-cy="todo-sort-button">
         <chakra.button
           w={["34px", "34px", "34px", "54px"]}
           h={["34px", "34px", "34px", "54px"]}
@@ -58,7 +58,6 @@ const SortPopover = ({ onChange }) => {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          data-cy="todo-sort-button"
         >
           <ArrowsSort />
         </chakra.button>

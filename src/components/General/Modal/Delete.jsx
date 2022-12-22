@@ -64,6 +64,7 @@ const ModalDelete = ({
         isCentered
         isOpen={isOpen}
         onClose={onClose}
+        data-cy="modal-delete"
         motionPreset="slideInBottom"
         size={["xs", "sm", "md", "lg"]}
       >

@@ -22,7 +22,7 @@ import Layouts from "@app/components/Layouts";
 import PlusIcon from "@app/icons/PlusIcon";
 import Button from "@app/components/General/Button";
 import BackIcon from "@app/icons/BackIcon";
-import SortPopover from "@app/components/General/MenuSort";
+import MenuSort from "@app/components/General/MenuSort";
 import EditIcon from "@app/icons/EditIcon";
 import Card from "@app/components/General/Todo/Card";
 import Fallback from "@app/components/General/Todo/Fallback";
@@ -87,8 +87,6 @@ const ItemLists = () => {
 
   const debounceTitleValue = useDebounce(titleValue, 500);
 
-  const [isTodoItemsSortable, setIsTodoItemsSortable] = useState([]);
-
   const handleProcessTodo = (values) => {
     setLoadingProcess(true);
 
@@ -107,6 +105,10 @@ const ItemLists = () => {
       .then(() => {
         onClose();
         mutate(`/activity-groups/${id}`);
+        resetForm({
+          title: "",
+          priority: null,
+        });
       })
       .finally(() => setLoadingProcess(false));
   };
@@ -162,22 +164,27 @@ const ItemLists = () => {
       const getTodoID = getActiveTodo.map((todo) => todo.id);
 
       setCompletedTodo(getTodoID);
-      setIsTodoItemsSortable(activityData?.todo_items);
     }
 
     return () => setCompletedTodo([]);
   }, [activityData]);
 
-  useEffect(() => {
-    if (sortPicked) {
-      const isTodoItemsSortable = handleSortTodoItem(
-        sortPicked,
-        activityData?.todo_items
-      );
-
-      setIsTodoItemsSortable(isTodoItemsSortable);
-    }
-  }, [sortPicked]);
+  const isTodoItemSortable =
+    sortPicked === SORT_TYPE.NEW
+      ? activityData?.todo_items?.sort((a, b) => Number(b.id) - Number(a.id))
+      : sortPicked === SORT_TYPE.OLD
+      ? activityData?.todo_items?.sort((a, b) => Number(a.id) - Number(b.id))
+      : sortPicked === SORT_TYPE.AZ
+      ? activityData?.todo_items?.sort((a, b) =>
+          a.title?.toLowerCase().localeCompare(b.title?.toLowerCase())
+        )
+      : sortPicked === SORT_TYPE.ZA
+      ? activityData?.todo_items?.sort((a, b) =>
+          b.title?.toLowerCase().localeCompare(a.title?.toLowerCase())
+        )
+      : activityData?.todo_items?.sort(
+          (a, b) => completedTodo.includes(a.id) - completedTodo.includes(b.id)
+        );
 
   return (
     <Layouts title={`List Item for ${activityData?.title}`}>
@@ -231,7 +238,9 @@ const ItemLists = () => {
           align="center"
           spacing="18px"
         >
-          <SortPopover onChange={(e) => setSortPicked(e.keyName)} />
+          {activityData?.todo_items?.length > 0 && (
+            <MenuSort onChange={(e) => setSortPicked(e.keyName)} />
+          )}
           <Button
             colorScheme="primary"
             leftIcon={<PlusIcon />}
@@ -251,7 +260,7 @@ const ItemLists = () => {
         <SimpleGrid pb="10" columns={1} spacing="15px">
           {isLoading
             ? Array.from(new Array(10)).map((_, i) => <Fallback key={i} />)
-            : isTodoItemsSortable?.map((todo, i) => {
+            : isTodoItemSortable?.map((todo, i) => {
                 const isCompletedTodo = completedTodo.includes(todo.id);
 
                 return (

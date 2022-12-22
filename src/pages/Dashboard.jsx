@@ -23,7 +23,9 @@ const Dashboard = () => {
     onClose: onCloseModalDelete,
   } = useDisclosure();
 
-  const { data: activityData, isLoading } = useSwr("/activity-groups");
+  const { data: activityData, isLoading } = useSwr(
+    `/activity-groups?email=${import.meta.env.VITE_EMAIL_URL}`
+  );
 
   const [activityPick, setActivityPick] = useState(null);
   const [loadingPostActivity, setLoadingPostActivity] = useState(false);
@@ -37,8 +39,11 @@ const Dashboard = () => {
     request
       .post("/activity-groups", {
         title: "New Activity",
+        email: import.meta.env.VITE_EMAIL_URL,
       })
-      .then(() => mutate("/activity-groups"))
+      .then(() =>
+        mutate(`/activity-groups?email=${import.meta.env.VITE_EMAIL_URL}`)
+      )
       .finally(() => setLoadingPostActivity(false));
   };
 
@@ -50,7 +55,7 @@ const Dashboard = () => {
       .then(() => {
         onCloseModalDelete();
         onOpenDone();
-        mutate("/activity-groups");
+        mutate(`/activity-groups?email=${import.meta.env.VITE_EMAIL_URL}`);
       })
       .finally(() => setLoadingDeleteActivity(false));
   };

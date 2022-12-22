@@ -72,8 +72,8 @@ const SortPopover = ({ onChange }) => {
             h="50px"
             icon={sortItem.icon}
             onClick={() => {
-              setSortPicked(sortItem.keyName);
               onChange(sortItem);
+              setSortPicked(sortItem.keyName);
             }}
             command={
               sortItem?.keyName === sortPicked ? (

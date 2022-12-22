@@ -41,7 +41,7 @@ const ModalCreate = ({
       onClose={onClose}
       motionPreset="slideInBottom"
     >
-      <ModalOverlay />
+      <ModalOverlay data-cy="modal-add" />
       <ModalContent data-cy="modal-add" borderRadius="12px">
         <form onSubmit={onSubmit}>
           <ModalHeader

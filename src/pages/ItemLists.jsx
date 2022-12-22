@@ -186,6 +186,12 @@ const ItemLists = () => {
           (a, b) => completedTodo.includes(a.id) - completedTodo.includes(b.id)
         );
 
+  useEffect(() => {
+    document
+      .querySelector(".chakra-editable__preview")
+      .setAttribute("data-cy", "todo-title");
+  }, []);
+
   return (
     <Layouts title={`List Item for ${activityData?.title ?? ""}`}>
       <Flex
@@ -216,7 +222,6 @@ const ItemLists = () => {
             <Editable
               color="text.500"
               fontWeight={[600, 700]}
-              data-cy="todo-title"
               onChange={(val) => setTitleValue(val)}
               w={["189px", "189px", "189px", "430px"]}
               lineHeight={["24px", "24px", "24px", "54px"]}
@@ -238,9 +243,7 @@ const ItemLists = () => {
           align="center"
           spacing="18px"
         >
-          {activityData?.todo_items?.length > 0 && (
-            <MenuSort onChange={(e) => setSortPicked(e.keyName)} />
-          )}
+          <MenuSort onChange={(e) => setSortPicked(e.keyName)} />
           <Button
             colorScheme="primary"
             leftIcon={<PlusIcon />}

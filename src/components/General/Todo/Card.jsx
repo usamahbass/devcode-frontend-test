@@ -9,7 +9,6 @@ const Card = ({
   title,
   handleEditAction,
   handleDeleteAction,
-  i,
   isActive,
   handleCompleted,
 }) => {

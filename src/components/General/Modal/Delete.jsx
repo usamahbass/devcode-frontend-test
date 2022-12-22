@@ -31,7 +31,7 @@ const ModalDelete = ({
         onClose={onCloseDone}
         motionPreset="slideInBottom"
       >
-        <ModalOverlay />
+        <ModalOverlay data-cy="modal-information" />
         <ModalContent
           h="58px"
           data-cy="modal-information"
@@ -67,8 +67,8 @@ const ModalDelete = ({
         motionPreset="slideInBottom"
         size={["xs", "sm", "md", "lg"]}
       >
-        <ModalOverlay />
-        <ModalContent borderRadius="12px">
+        <ModalOverlay data-cy="modal-delete" />
+        <ModalContent data-cy="modal-delete" borderRadius="12px">
           <ModalBody
             display="flex"
             alignItems="center"

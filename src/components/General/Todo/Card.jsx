@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { Box, Checkbox, Stack, Text, chakra } from "@chakra-ui/react";
+import { Box, Stack, Text, chakra } from "@chakra-ui/react";
 import { TODO_INDICATOR } from "@app/utils/constants";
 import EditIcon from "@app/icons/EditIcon";
 import TrashIcon from "@app/icons/TrashIcon";
@@ -16,12 +15,6 @@ const Card = ({
     (todoIndicator) => todoIndicator.value === priority
   );
 
-  useEffect(() => {
-    document
-      .querySelector(".chakra-checkbox__input")
-      .setAttribute("data-cy", "todo-item-checkbox");
-  }, []);
-
   return (
     <Box
       bg="white"
@@ -37,11 +30,17 @@ const Card = ({
       boxShadow="0px 6px 10px rgba(0, 0, 0, 0.1)"
     >
       <Box display="flex" alignItems="center">
-        <Checkbox
+        <Box
+          as="input"
+          type="checkbox"
           mr="22px"
+          w="20px"
+          h="20px"
+          className="todo-item-check"
+          data-cy="todo-item-checkbox"
           colorScheme="primary"
           size="lg"
-          isChecked={isActive}
+          checked={isActive}
           onChange={handleCompleted}
         />
 

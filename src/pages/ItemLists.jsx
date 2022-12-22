@@ -187,10 +187,12 @@ const ItemLists = () => {
         );
 
   useEffect(() => {
-    document
-      .querySelector(".chakra-editable__preview")
-      .setAttribute("data-cy", "todo-title");
-  }, []);
+    if (activityData) {
+      document
+        .querySelector(".chakra-editable__preview")
+        .setAttribute("data-cy", "todo-title");
+    }
+  }, [activityData]);
 
   return (
     <Layouts title={`List Item for ${activityData?.title ?? ""}`}>

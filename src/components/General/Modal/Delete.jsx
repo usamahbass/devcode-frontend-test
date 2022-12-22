@@ -63,8 +63,15 @@ const ModalDelete = ({
       <Modal
         isCentered
         isOpen={isOpen}
-        onClose={onClose}
-        data-cy="modal-delete"
+        onClose={() => {
+          document
+            .querySelector(".chakra-modal__content-container")
+            .setAttribute("data-cy", "modal-delete");
+
+          setTimeout(() => {
+            onClose();
+          }, 100);
+        }}
         motionPreset="slideInBottom"
         size={["xs", "sm", "md", "lg"]}
       >

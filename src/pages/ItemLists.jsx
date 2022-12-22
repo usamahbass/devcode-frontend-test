@@ -17,7 +17,6 @@ import useSWR, { mutate } from "swr";
 import { request } from "@app/utils/request";
 import { useDebounce } from "@app/hooks/useDebounce";
 import { SORT_TYPE } from "@app/utils/constants";
-import { handleSortTodoItem } from "@app/utils/helper";
 import Layouts from "@app/components/Layouts";
 import PlusIcon from "@app/icons/PlusIcon";
 import Button from "@app/components/General/Button";
@@ -107,7 +106,7 @@ const ItemLists = () => {
         mutate(`/activity-groups/${id}`);
         resetForm({
           title: "",
-          priority: null,
+          priority: "very-high",
         });
       })
       .finally(() => setLoadingProcess(false));
@@ -193,6 +192,12 @@ const ItemLists = () => {
         .setAttribute("data-cy", "todo-title");
     }
   }, [activityData]);
+
+  useEffect(() => {
+    if (methodType === "post") {
+      setValue("priority", "very-high");
+    }
+  }, [methodType]);
 
   return (
     <Layouts title={`List Item for ${activityData?.title ?? ""}`}>
@@ -307,7 +312,7 @@ const ItemLists = () => {
           setMethodType("post");
           resetForm({
             title: "",
-            priority: null,
+            priority: "very-high",
           });
         }}
       />

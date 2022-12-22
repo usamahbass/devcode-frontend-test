@@ -18,7 +18,7 @@ const Card = ({
 
   useEffect(() => {
     document
-      .getElementById("todoCheckbox")
+      .querySelector(".chakra-checkbox__input")
       .setAttribute("data-cy", "todo-item-checkbox");
   }, []);
 
@@ -43,7 +43,6 @@ const Card = ({
           size="lg"
           isChecked={isActive}
           onChange={handleCompleted}
-          id="todoCheckbox"
         />
 
         <Stack direction="row" align="center" spacing="16px">
@@ -58,6 +57,7 @@ const Card = ({
           <Text
             data-cy="todo-item-title"
             fontWeight={500}
+            as="span"
             fontSize={["14px", "14px", "14px", "18px"]}
             color={isActive ? "#888888" : "#111111"}
             textDecor={isActive ? "line-through" : "none"}

@@ -5,7 +5,10 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  MenuIcon,
+  MenuCommand,
   Text,
+  Box,
 } from "@chakra-ui/react";
 import ArrowsSort from "@app/icons/ArrowsSort";
 import SortLatestIcon from "@app/icons/SortLatestIcon";
@@ -70,15 +73,27 @@ const SortPopover = ({ onChange }) => {
               p="11px"
               key={i}
               h="50px"
-              data-cy="sort-selection-selected"
-              icon={sortItem.icon}
+              gap="13px"
+              data-cy="sort-selection"
               onClick={() => {
                 onChange(sortItem);
                 setSortPicked(sortItem.keyName);
               }}
-              command={<SortSelectionSelectedIcon />}
             >
-              <Text data-cy="sort-selection-title">{sortItem.name}</Text>
+              <Box
+                display="flex"
+                w="full"
+                alignItems="center"
+                data-cy="sort-selection-selected"
+              >
+                <MenuIcon>{sortItem.icon}</MenuIcon>
+                <Text ml="12px" data-cy="sort-selection-title">
+                  {sortItem.name}
+                </Text>
+                <MenuCommand ml="auto">
+                  <SortSelectionSelectedIcon />
+                </MenuCommand>
+              </Box>
             </MenuItem>
           ) : (
             <MenuItem
@@ -86,13 +101,22 @@ const SortPopover = ({ onChange }) => {
               key={i}
               h="50px"
               data-cy="sort-selection"
-              icon={sortItem.icon}
               onClick={() => {
                 onChange(sortItem);
                 setSortPicked(sortItem.keyName);
               }}
             >
-              <Text data-cy="sort-selection-title">{sortItem.name}</Text>
+              <Box
+                display="flex"
+                w="full"
+                alignItems="center"
+                data-cy="sort-selection-selected"
+              >
+                <MenuIcon>{sortItem.icon}</MenuIcon>
+                <Text ml="12px" data-cy="sort-selection-title">
+                  {sortItem.name}
+                </Text>
+              </Box>
             </MenuItem>
           )
         )}
